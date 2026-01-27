@@ -26,7 +26,7 @@ micromamba activate 00_anvio
 Run Highlighting `fastqc` the file are 0_raw_reads in metagenomic directory, you could work either there or make a new directory
 
 |Files names|
-| --- | --- | --- |
+| --- |
 |BGR_130305_mapped_R1.fastq.gz  |
 BGR_130305_mapped_R2.fastq.gz
 |BGR_130527_mapped_R1.fastq.gz
