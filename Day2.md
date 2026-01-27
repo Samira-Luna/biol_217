@@ -1,5 +1,5 @@
 # Metagenome-assembled Genomes (MAGs)
-Always name your files ending with `.md` for it to work!
+
 
 ## Quality control of raw reads
 First, we need to evaluate the quality of the sequenced data, make a batch script:
@@ -25,7 +25,7 @@ micromamba activate 00_anvio
 
 Run Highlighting `fastqc` the file are 0_raw_reads in metagenomic directory, you could work either there or make a new directory
 
-|Files names|||
+|Files names|
 | --- | --- | --- |
 |BGR_130305_mapped_R1.fastq.gz  |
 BGR_130305_mapped_R2.fastq.gz
