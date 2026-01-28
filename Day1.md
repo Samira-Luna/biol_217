@@ -22,7 +22,7 @@ squeue --me:
 ### Use of terminal 
 Start session
 ```
-ssh -X sunam233@caucluster.rz.uni.kiel-kiel.de
+ssh -X sunam233@caucluster.rz.uni-kiel.de
 ```
 Enter password: ****
 
