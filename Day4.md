@@ -9,7 +9,7 @@ To only check what bin collections you have generated (without calculating genom
 ```
 anvi-estimate-genome-completeness --list-collections -p $WORK/day3/merged_profiles/PROFILE.db -c $WORK/day3/contigs.db
 ```
-![alt text](Images/day4.png)
+                              ![alt text](Images/day4.png)
 
 ## Examining bins manually
 
