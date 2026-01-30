@@ -25,3 +25,4 @@ Inciate and run interactive process like day3
 How many A R C H A E A bins do you get that are of High quality? **1**
 How many B A C T E R I A bins do you get that are of High quality?**4**
 ![alt text](Images/DAY4(2).png)
+![alt text](Images/DAY5.png)
