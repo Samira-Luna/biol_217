@@ -12,4 +12,16 @@ makes quick taxonomy estimates for genomes, metagenomes, or bins stored in your 
 ![alt text](Images/anvi-run.png)
 
 Then run  `run anvi-estimate-scg-taxonomy`
-![alt text](Images/TAXONOMY.png)
+
+#### Questions
+Did you get a species assignment to the A R C H A E A bins previously identified?
+Does the HIGH-QUALITY assignment of the bin need revision?
+![alt text](Images/tax.png)
+
+## Genome dereplication
+make a table with all the bins
+```
+anvi-dereplicate-genomes -i $WORK/day5/dereplicationall.tsv --program fastANI --similarity-threshold 0.95 -o $WORK/day5/dereplication_all_ANI --log-file log_ANI -T 10 --force-overwrite
+```
+
+![alt text](Images/allthebins.png)
