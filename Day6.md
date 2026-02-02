@@ -96,4 +96,43 @@ quast.py $WORK/day6/hybrid_assembly/assembly.fasta --circos -L --conserved-genes
      --glimmer --use-all-alignments --report-all-metrics -o $WORK/day6/hybrid_assembly/assembly_quality/quast -t 8
 micromamba deactivate
 ```
+### CheckM
+```
+#micromamba activate 04_checkm
+#cd $WORK/day6 
+#mkdir -p $WORK/day6/hybrid_assembly/assembly_quality/checkM
+#checkm lineage_wf $WORK/day6/hybrid_assembly/ $WORK/day6/hybrid_assembly/assembly_quality/checkM -x fasta --tab_table --file $WORK/day6/hybrid_assembly/assembly_quality/checkM/checkm_results -r -t 8
+#checkm tree_qa $WORK/day6/hybrid_assembly/assembly_quality/checkM/checkm_results
+#checkm qa $WORK/day6/hybrid_assembly/assembly_quality/checkM/lineage.ms $WORK/day6/hybrid_assembly/assembly_quality/checkM/ -o 1 > $WORK/day6/hybrid_assembly/assembly_quality/checkM/final_table_01.csv
+#checkm qa $WORK/day6/hybrid_assembly/assembly_quality/checkM/lineage.ms $WORK/day6/hybrid_assembly/assembly_quality/checkM/ -o 2 > .$WORK/day6/hybrid_assembly/assembly_quality/checkM/final_table_checkm.csv
+#micromamba deactivate
+```
+###CheckM2
+```
+#micromamba activate 04_checkm2
+  #cd $WORK/day6
+  #mkdir -p $WORK/day6/hybrid_assembly/assembly_quality/checkM2
+ #checkm2 predict --threads 1 --input $WORK/day6/hybrid_assembly/*.fasta --output-directory $WORK/day6/hybrid_assembly/assembly_quality/checkM2
+#micromamba deactivate
+```
+### Bandage
+Visualize the assembly using Bandage
+ ![alt text](Images/day6-8.png)
+ ## Annote the genomes
+ We used `Prokka:` rapid prokaryotic genome annotation
+ ```
+  micromamba activate 05_prokka
+  cd $WORK/day6
+prokka  $WORK/day6/hybrid_assembly/assembly.fasta --outdir $WORK/day6/4_annotated_genome  --kingdom Bacteria --addgenes --cpus 32
+```
 
+## Classify the genome
+We used `GTDB-Tk` is a software toolkit for assigning objective taxonomic classifications to bacterial and archaeal genomes based on the Genome Database Taxonomy GTDB
+```
+ micromamba activate 06_gtdbtk
+ cd $WORK/day6
+mkdir -p $WORK/day6/classify_genome/5_gtdb_classification
+ gtdbtk classify_wf --cpus 1 --genome_dir $WORK/day6/4_annotated_genome --out_dir $WORK/day6/classify_genome/5_gtdb_classification --extension .fna --skip_ani_screen
+  micromamba deactivate
+```
+## MultiQC to combine reports
