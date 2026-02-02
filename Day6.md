@@ -136,3 +136,8 @@ mkdir -p $WORK/day6/classify_genome/5_gtdb_classification
   micromamba deactivate
 ```
 ## MultiQC to combine reports
+```
+micromamba activate 01_short_reads_qc
+ cd $WORK/day6
+multiqc -d $WORK/day6/ -o $WORK/day6/6_multiqc
+```
