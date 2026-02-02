@@ -12,8 +12,8 @@ Run `fastqc` the file are 0_raw_reads in genomic directory, you could work eithe
 
 |Short reads | Long reads |  |
 | --- | --- | --- |
-| 241155E_R1.fastq.gz | 241155E.fastq.gz | 
-| 241155E_R2.fastq.gz|  | 
+| 241155E_R1.fastq.gz | 241155E.fastq.gz  
+| 241155E_R2.fastq.gz|  
 ```
 cd $WORK/day6
 mdir day6
