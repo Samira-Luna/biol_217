@@ -141,3 +141,10 @@ micromamba activate 01_short_reads_qc
  cd $WORK/day6
 multiqc -d $WORK/day6/ -o $WORK/day6/6_multiqc
 ```
+#### Questions
+
+    How good is the quality of genome? 
+    Why did we use Hybrid assembler?
+    What is the difference between short and long reads?
+    Did we use Single or Paired end reads? Why?
+    Which classification was assigned to the genome. Is it trust worthy and why?
