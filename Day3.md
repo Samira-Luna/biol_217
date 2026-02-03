@@ -105,10 +105,10 @@ ssh -L localhost:8080:localhost:8080 sunamNNN@caucluster.rz.uni-kiel.de
 **Note:** if the server change (local host) you must change,the sunamnNN conected to a node nNN and it change everytime it can be 246, 247 or 248
 ```
 ssh -L localhost:8080:localhost:8080 nNNN
-
+```
 Run the interactive command
 ```
-#anvi-display-contigs-stats $WORK/day3//contigs.db
+anvi-display-contigs-stats $WORK/day3//contigs.db
 ```
 
 ![alt text](Images/day3.png)
@@ -127,6 +127,7 @@ anvi-merge $WORK/day3/BGR_130305_profile/PROFILE.db $WORK/day3/BGR_130527_profil
 ```
 ### Binning contigs into genomes
 Using MetaBAT2
+
 ```
 anvi-cluster-contigs -p $WORK/day3/merged_profiles/PROFILE.db -c $WORK/day3/contigs.db -C METABAT2 --driver metabat2 --log-file $WORK/day3/metabait2.log --just-do-it
 ```
@@ -134,9 +135,9 @@ Using MaxBin2
 ```
 anvi-summarize -p $WORK/day3/merged_profiles/PROFILE.db -c $WORK/day3/contigs.db -o $WORK/day3/summary_metaba2 -C METABAT2
 ```
-#### QUESTIONS
 
-    How many A R C H A E A bins did you get from MetaBAT2? 3
+#### QUESTIONS
+ How many A R C H A E A bins did you get from MetaBAT2? **3**
     ![alt text](Images/day3-2.png)
-    How many A R C H A E A bins did you get from Maxbin2?
+     How many A R C H A E A bins did you get from Maxbin2?
     ![alt text](Images/day3-3.png)
