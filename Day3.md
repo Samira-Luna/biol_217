@@ -139,5 +139,5 @@ anvi-summarize -p $WORK/day3/merged_profiles/PROFILE.db -c $WORK/day3/contigs.db
 #### QUESTIONS
  How many A R C H A E A bins did you get from MetaBAT2? **3**
     ![alt text](Images/day3-2.png)
-     How many A R C H A E A bins did you get from Maxbin2?
+     How many A R C H A E A bins did you get from Maxbin2? **1**
     ![alt text](Images/day3-3.png)
