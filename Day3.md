@@ -29,6 +29,12 @@ mkdir day3
 cd day3
 metaquast $WORK/final.contigs.fa -o $WORK/day3/metaquast_out -t 6 -m 1000
 ````
+####        QUESTIONS
+
+    What is your N50 value? Why is this value relevant?
+    How many contigs are assembled?
+    What is the total length of the contigs?
+
 ### Re-formatting the contigs
 To simplify sequence IDs and filter out short contigs, we will use `anvi-script-reformat-fasta.`
 ```
@@ -99,10 +105,38 @@ ssh -L localhost:8080:localhost:8080 sunamNNN@caucluster.rz.uni-kiel.de
 **Note:** if the server change (local host) you must change,the sunamnNN conected to a node nNN and it change everytime it can be 246, 247 or 248
 ```
 ssh -L localhost:8080:localhost:8080 nNNN
+
+Run the interactive command
 ```
- Highlight text options
-* Highlighting `the text`
-* Making the *text* italic
-* Making the **text** bold
-* Making the ***text*** italic & bold
-* Underlining the <u>text</u> 
+#anvi-display-contigs-stats $WORK/day3//contigs.db
+```
+
+![alt text](Images/day3.png)
+![alt text](Images/day3-1.png)
+
+### Creating an anvi'o profile
+```
+anvi-profile -i $WORK/day3/BGR_130305_sorted.bam -c $WORK/day3/contigs.db -o $WORK/day3/BGR_130305_profile/
+anvi-profile -i $WORK/day3/BGR_130527_sorted.bam -c $WORK/day3/contigs.db -o $WORK/day3/BGR_130527_profile/
+anvi-profile -i $WORK/day3/BGR_130708_sorted.bam -c $WORK/day3/contigs.db -o $WORK/day3/BGR_130708_profile/
+```
+### Merging anvi'o profiles from all samples
+Merging anvi'o profiles from all samples
+```
+anvi-merge $WORK/day3/BGR_130305_profile/PROFILE.db $WORK/day3/BGR_130527_profile/PROFILE.db $WORK/day3/BGR_130708_profile/PROFILE.db  -o $WORK/day3/merged_profiles  -c $WORK/day3/contigs.db --enforce-hierarchical-clustering
+```
+### Binning contigs into genomes
+Using MetaBAT2
+```
+anvi-cluster-contigs -p $WORK/day3/merged_profiles/PROFILE.db -c $WORK/day3/contigs.db -C METABAT2 --driver metabat2 --log-file $WORK/day3/metabait2.log --just-do-it
+```
+Using MaxBin2
+```
+anvi-summarize -p $WORK/day3/merged_profiles/PROFILE.db -c $WORK/day3/contigs.db -o $WORK/day3/summary_metaba2 -C METABAT2
+```
+#### QUESTIONS
+
+    How many A R C H A E A bins did you get from MetaBAT2? 3
+    ![alt text](Images/day3-2.png)
+    How many A R C H A E A bins did you get from Maxbin2?
+    ![alt text](Images/day3-3.png)
