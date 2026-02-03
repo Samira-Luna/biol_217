@@ -1,11 +1,11 @@
 #!/bin/bash
-#SBATCH --job-name=test3
-#SBATCH --output=test3.out
-#SBATCH --error=test3.err
+#SBATCH --job-name=testmeta
+#SBATCH --output=testmeta.out
+#SBATCH --error=testmeta.err
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=12
-#SBATCH --mem=32G
+#SBATCH --mem=10G
 #SBATCH --partition=base
 #SBATCH --time=3:00:00
 #SBATCH --reservation=biol217
@@ -42,9 +42,20 @@ cd $WORK/day3
 #anvi-run-hmms -c $WORK/day3/contigs.db --num-threads 4
 #anvi-display-contigs-stats $WORK/day3//contigs.db
 
-anvi-profile -i $WORK/day3/BGR_130305_sorted.bam -c $WORK/day3/contigs.db -o $WORK/day3/BGR_130305_profile/
-anvi-profile -i $WORK/day3/BGR_130527_sorted.bam -c $WORK/day3/contigs.db -o $WORK/day3/BGR_130527_profile/
-anvi-profile -i $WORK/day3/BGR_130708_sorted.bam -c $WORK/day3/contigs.db -o $WORK/day3/BGR_130708_profile/
+#anvi-profile -i $WORK/day3/BGR_130305_sorted.bam -c $WORK/day3/contigs.db -o $WORK/day3/BGR_130305_profile/
+#anvi-profile -i $WORK/day3/BGR_130527_sorted.bam -c $WORK/day3/contigs.db -o $WORK/day3/BGR_130527_profile/
+#anvi-profile -i $WORK/day3/BGR_130708_sorted.bam -c $WORK/day3/contigs.db -o $WORK/day3/BGR_130708_profile/
+
+#anvi-merge $WORK/day3/BGR_130305_profile/PROFILE.db $WORK/day3/BGR_130527_profile/PROFILE.db $WORK/day3/BGR_130708_profile/PROFILE.db  -o $WORK/day3/merged_profiles  -c $WORK/day3/contigs.db --enforce-hierarchical-clustering
+
+
+#anvi-cluster-contigs -p $WORK/day3/merged_profiles/PROFILE.db -c $WORK/day3/contigs.db -C METABAT2 --driver metabat2 --log-file $WORK/day3/metabait2.log --just-do-it
+#anvi-summarize -p $WORK/day3/merged_profiles/PROFILE.db -c $WORK/day3/contigs.db -o $WORK/day3/summary_metaba2 -C METABAT2
+
+anvi-cluster-contigs -p $WORK/day3/merged_profiles/PROFILE.db -c $WORK/day3/contigs.db -C MAXBIN2 --driver maxbin2 --log-file $WORK/day3/maxbin2.log --just-do-it
+anvi-summarize -p $WORK/day3/merged_profiles/PROFILE.db -c $WORK/day3/contigs.db -o $WORK/day3/summary_maxbin2 -C MAXBIN2
+
+
 
 #micromamba activate .micromamba/envs/00_anvio/
 
