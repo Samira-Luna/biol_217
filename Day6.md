@@ -10,8 +10,8 @@ Activate micromba tools in the terminal or just write direct in the batch script
 ```
 Run `fastqc` the file are 0_raw_reads in genomic directory, you could work either there or make a new directory
 
-|Short reads | Long reads |  |
-| --- | --- | --- |
+|Short reads | Long reads  |
+|     ---         | --- |
 | 241155E_R1.fastq.gz | 241155E.fastq.gz  
 | 241155E_R2.fastq.gz|  
 ```
